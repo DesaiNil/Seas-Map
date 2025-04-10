@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigate Map</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>🗺️ Navigate Your Map</h2>
+
+        <form id="pathForm">
+            <label for="mapName">Enter Map Name:</label>
+            <input type="text" id="mapName" placeholder="Enter map name" required>
+
+            <label for="startLocation">Start Location:</label>
+            <input type="text" id="startLocation" placeholder="Enter start location" required>
+
+            <label for="destination">Destination:</label>
+            <input type="text" id="destination" placeholder="Enter destination" required>
+
+            <button type="submit">Find Shortest Path</button>
+        </form>
+
+        <div id="output"></div>
+    </div>
+
+    <script src="graph.js"></script>
+    <script src="script.js"></script>
+    <script src="graph.js"></script>
+    <script src="navigate.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Map</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>🛠️ Create a Map</h2>
+        <form id="mapForm">
+            <label for="mapName">Enter Map Name:</label>
+            <input type="text" id="mapName" required>
+
+            <label for="numPaths">Enter Number of Paths:</label>
+            <input type="number" id="numPaths" min="1" required>
+
+            <button type="submit">Generate Path Inputs</button>
+        </form>
+    </div>
+    <script>
+        const mapNameInput = document.getElementById("mapName");
+        const numPathsInput = document.getElementById("numPaths");
+        const generateBtn = document.getElementById("generatePaths");
+        const errorMessage = document.createElement("p");
+        errorMessage.style.color = "red";
+        document.getElementById("mapForm").appendChild(errorMessage);
+
+        function validateInputs() {
+            generateBtn.disabled = !(mapNameInput.value.trim() && numPathsInput.value.trim() > 0);
+        }
+
+        mapNameInput.addEventListener("input", validateInputs);
+        numPathsInput.addEventListener("input", validateInputs);
+
+        document.getElementById("mapForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const mapName = mapNameInput.value.trim();
+            const numPaths = numPathsInput.value.trim();
+
+            if (!mapName || numPaths <= 0) {
+                errorMessage.textContent = "Please enter a valid map name and number of paths.";
+                return;
+            }
+
+            // Check if map exists
+            let maps = JSON.parse(localStorage.getItem("maps")) || {};
+            if (maps[mapName]) {
+                errorMessage.textContent = `Map "${mapName}" already exists.`;
+                return;
+            }
+
+            // Redirect to add-paths.html with query parameters
+            window.location.href = `add_paths.html?mapName=${encodeURIComponent(mapName)}&numPaths=${numPaths}`;
+
+        });
+    </script>
+
+</body>
+
+</html>

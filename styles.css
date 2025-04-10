@@ -1,0 +1,97 @@
+/* General body styling with sky blue background */
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #87CEEB, #B0E0E6);
+    /* Sky blue gradient */
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    /* Align content at the top */
+    min-height: 100vh;
+}
+
+
+/* Fixed container position */
+
+.container {
+    background: #ffffff;
+    color: #333;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    margin-top: 20px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+
+/* Fix scrolling issue in Add Paths page */
+
+.path-container {
+    padding-top: 10px;
+    max-height: 400px;
+    overflow-y: auto;
+    /* Enables scrolling */
+    padding-right: 10px;
+}
+
+
+/* Input fields styling */
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+/* Button styling */
+
+button {
+    background: #007BFF;
+    /* Bright blue */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background: #0056b3;
+    /* Darker blue */
+}
+
+
+/* Smooth fade-in effect */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* Responsive fix */
+
+@media (max-width: 600px) {
+    .container {
+        width: 95%;
+    }
+}
